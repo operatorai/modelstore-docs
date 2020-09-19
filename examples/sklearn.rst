@@ -11,7 +11,7 @@ tutorial from the scikit-learn website::
     from sklearn.ensemble import GradientBoostingRegressor
     from sklearn.model_selection import train_test_split
 
-    from modelstore import model_store # @TODO
+    from modelstore import ModelStore
 
 
     def train():
@@ -44,7 +44,7 @@ tutorial from the scikit-learn website::
         # This example assumes that you have the GCP project name and bucket id
         # saved as environment variables - replace the os.environ below with
         # your values
-        store = model_store.from_gcloud(
+        store = ModelStore.from_gcloud(
             project_name=os.environ["GCP_PROJECT_ID"],
             bucket_name=os.environ["GCP_BUCKET_NAME"],
         )
