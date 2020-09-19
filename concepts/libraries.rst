@@ -4,13 +4,17 @@ Supported Machine Learning Libraries
 This library currently supports:
 
 * `CatBoost <https://catboost.ai/>`_
+* `Keras <https://keras.io/>`_
 * `PyTorch <https://pytorch.org/>`_
 * `Scikit-Learn <https://scikit-learn.org>`_
 * `XGBoost <https://xgboost.readthedocs.io>`_
 
 The common pattern, across all supported libraries, is to::
 
-   # Create an instance of the model store     
+
+   # Create an instance of the model store
+   from modelstore import ModelStore
+
    ms = ModelStore.from_gcloud(
       project_name="my-project",
       bucket_name="my-bucket",
@@ -44,6 +48,23 @@ The :code:`pool` argument is required `if you are training a multi class model <
 
 The archive will also contain a :code:`model_attributes.json` file with all of the
 attributes of the model.
+
+Keras
+-------
+
+To export a `Keras <https://keras.io/>`_ model, use::
+
+    # Train your model
+    model = keras.Model(inputs, outputs)
+    model.compile(optimizer="adam", loss="mean_squared_error")
+    model.fit(X_train, y_train, epochs=10)
+    # ...
+
+    # Create and upload an archive
+    archive = ms.keras.create_archive(model=net, optimizer=optim)
+    rsp = ms.upload("model-domain", archive)
+
+This will add two dumps of the model into the archive; based on calling :code:`model.to_json()` and :code:`model.save()`. 
 
 PyTorch
 -------
@@ -91,6 +112,5 @@ To export an `XGBoost <https://xgboost.readthedocs.io>`_ model, use::
     rsp = ms.upload("model-domain", archive)
 
 This will add two dumps of the model into the archive; a model dump (in
-an interchangeable format, for loading again later), and a model save (in JSON format,
-which, to date, is experimental).
+an interchangeable format, for loading again later), and a model save (in JSON format, which, to date, is experimental).
 
