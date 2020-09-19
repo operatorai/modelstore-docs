@@ -1,7 +1,7 @@
 Installing the modelstore library
 =======================================
 
-Operator AI can be installed via pip::
+This library can be installed via pip::
 
     pip install modelstore
 

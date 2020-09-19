@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath(".."))
 
 # -- Project information -----------------------------------------------------
 
-project = "Operator AI"
+project = "modelstore"
 copyright = "2020, Neal Lathia"
 author = "Neal Lathia"
 

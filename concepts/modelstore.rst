@@ -1,10 +1,11 @@
 The Model Store Structure
 =======================================
 
-Operator AI's model store interacts with a backend of your chosing. The library currently supports:
+This library's model store interacts with a backend of your chosing. The library currently supports:
 
 * A local directory
 * `Google Cloud Storage <https://cloud.google.com/storage>`_
+* `AWS S3 Buckets <https://aws.amazon.com/s3/>`_
 
 This library stores models in cloud buckets using a pre-defined structure.
 
