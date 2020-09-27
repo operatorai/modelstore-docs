@@ -1,9 +1,9 @@
 modelstore
 =======================================
 
-:code:`modelstore` is a Python library that allows you to version, export, and save a machine learning model to your filesystem or a cloud storage provider (AWS or GCP).
+:code:`modelstore` is a Python library that allows you to version, export, and save/retrieve a machine learning models to and from your filesystem or a cloud storage provider (AWS or GCP).
 
-The library's :code:`ModelStore` helps you to (a) version your models, (b) store them in a structured way, and (c) collect meta data about the Python runtime that was used to train them.
+The library's :code:`ModelStore` automates versioning your models, storing them in a structured way, retrieving them, and collecting meta data about the Python runtime that was used to train them.
 
 .. toctree::
    :maxdepth: 2

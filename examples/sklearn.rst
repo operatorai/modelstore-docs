@@ -70,3 +70,13 @@ tutorial from the scikit-learn website::
         #  bucket
         print("✅  Finished uploading model!")
         print(json.dumps(meta, indent=4))
+
+        # Download the model back!
+        target = f"downloaded-{model_type}-model"
+        os.makedirs(target, exist_ok=True)
+        model_path = model_store.download(
+            local_path=target,
+            domain=model_domain,
+            model_id=meta["model"]["model_id"],
+        )
+        print(f"⤵️  Downloaded the model back to {model_path}")
