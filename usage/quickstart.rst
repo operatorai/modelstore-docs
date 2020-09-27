@@ -44,7 +44,7 @@ To read more about the supported libraries, see: :doc:`../concepts/libraries`.
 Upload the model to cloud storage
 ---------------------------------
 
-Finally, to save your models into your chosen storage, use :code:`upload()`::
+To save your models into your chosen storage, use :code:`upload()`::
         
    rsp = ms.upload(domain="example-model", archive)
 
@@ -54,3 +54,15 @@ models to predict whether an email is spam. Setting :code:`domain="spam-detectio
 will store all of those models together.
 
 To read more about how this library organises models, see :doc:`../concepts/modelstore`.
+
+Download a model from cloud storage
+-----------------------------------
+
+To retrieve a model from your chosen storage, use :code:`download()`::
+        
+   file_path = ms.download(local_path=".", domain="example-model", model_id="model-id")
+
+This function will download the :code:`artifacts.tar.gz` that you stored, extract all the files from it, and remove the tar file.
+
+If you do not provide a :code:`model_id` parameter, the :code:`download()` function will default to the last model that was stored for the given domain.
+

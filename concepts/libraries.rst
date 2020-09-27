@@ -7,6 +7,8 @@ This library currently supports:
 * `Keras <https://keras.io/>`_
 * `PyTorch <https://pytorch.org/>`_
 * `Scikit-Learn <https://scikit-learn.org>`_
+* `Tensorflow <https://www.tensorflow.org/>`_
+* `Transformers <https://github.com/huggingface/transformers>`_
 * `XGBoost <https://xgboost.readthedocs.io>`_
 
 The common pattern, across all supported libraries, is to::
@@ -98,6 +100,49 @@ To export a `scikit-learn <https://scikit-learn.org>`_ model, use::
     archive = ms.sklearn.create_archive(model=clf)
 
 This will add a :code:`joblib` dump of the model into the archive.
+
+Tensorflow
+------------
+
+To export a `tensorflow <https://www.tensorflow.org/>`_ model, use::
+
+    # Train your model
+    model = tf.keras.models.Sequential(
+        [
+            tf.keras.layers.Dense(5, activation="relu", input_shape=(10,)),
+            tf.keras.layers.Dropout(0.2),
+            tf.keras.layers.Dense(1),
+        ]
+    )
+    model.compile(optimizer="adam", loss="mean_squared_error")
+    model.fit(X_train, y_train, epochs=10)
+
+    # Create an archive
+    archive = model_store.tensorflow.create_archive(model=model)
+
+This will both save the weights (as a checkpoint file) and export/save the entire model.
+
+Transformers
+------------
+
+To export a `transformers <https://github.com/huggingface/transformers>`_ model, use::
+
+    # Get a pre-trained model and fine tune it
+    model_name = "distilbert-base-cased"
+    config = AutoConfig.from_pretrained(
+        model_name, num_labels=2, finetuning_task="mnli",
+    )
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = AutoModelForSequenceClassification.from_pretrained(
+        model_name, config=config,
+    )
+
+    # Create an archive
+    archive = model_store.transformers.create_archive(
+        config=config, model=model, tokenizer=tokenizer,
+    )
+
+The :code:`config` and :code:`tokenizer` parameters are optional. This will use the :code:`save_pretrained()` function to save your model.
 
 XGBoost
 -------
