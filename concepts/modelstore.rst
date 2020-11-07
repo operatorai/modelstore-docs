@@ -12,15 +12,13 @@ This library stores models in cloud buckets using a pre-defined structure.
 Model Archive & Meta Data
 -------------------------
 
-When you use :code:`create_archive()`, an :code:`artifacts.tar.gz` file is created
-in the current working directory. This archive contains:
+When you use :code:`upload()`, an :code:`artifacts.tar.gz` file is created
+and then uploaded to the storage of your choice. This archive contains:
 
 1. Any files that were dumped from your model,
 2. A :code:`"python-info.json"` file that enumerates the version of the Python library of the model you are exporting.
-3. Files containing any additional data you want to add to the archive.
 
-When you :code:`upload()` a model archive, this library uploads the archive to cloud
-storage, and creates and returns a dictionary containing meta-data about the model.
+The :code:`upload()` function returns a dictionary containing meta-data about the model.
 
 The meta-data includes:
 

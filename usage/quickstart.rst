@@ -16,7 +16,7 @@ To save your models, create a model store instance with::
    
    from modelstore import ModelStore
 
-   ms = ModelStore.from_gcloud(
+   model_store = ModelStore.from_gcloud(
       project_name="my-project",
       bucket_name="my-bucket",
    )
@@ -25,44 +25,39 @@ For AWS, use :code:`ModelStore.from_aws_s3(bucket_name="<s3-bucket>")`
 
 For your local file system, use :code:`ModelStore.from_file_system(root="<path>")`
 
-Export a model
---------------
+Upload the model to the model store
+-----------------------------------
 
 The :code:`modelstore` library detects which types of machine learning libraries you have installed, and automatically sets up functions that enable you to export a trained model.
 
-All of the functions have the form :code:`ms.<library-name>.create_archive()`.
+When you upload a model, you need to specify a **domain**. This is the word we use
+to group several models that are for the same end-usage together. For example, let's assume you are training several models to predict whether an email is spam. Setting :code:`domain="spam-detection"` will store all of those models together.
+
+All of the functions have the form :code:`ms.<library-name>.upload()`.
 
 For example, to export a :code:`scikit-learn` model, use::
 
-   archive = ms.sklearn.create_archive(model=my_model)
+   metadata = model_store.sklearn.upload(domain="domain-name", model=my_model)
 
 This function will create a file called :code:`artifacts.tar.gz` in your current
-working directory, which contains the exported model.
+working directory, which contains the exported model and some meta data, and uploads it to the bucket or location you have selected.
 
 To read more about the supported libraries, see: :doc:`../concepts/libraries`.
 
-Upload the model to cloud storage
----------------------------------
-
-To save your models into your chosen storage, use :code:`upload()`::
-        
-   rsp = ms.upload(domain="example-model", archive)
-
-When you upload a model, you need to specify a **domain**. This is the word we use
-to group several models together. For example, let's assume you are training several
-models to predict whether an email is spam. Setting :code:`domain="spam-detection"`
-will store all of those models together.
-
 To read more about how this library organises models, see :doc:`../concepts/modelstore`.
 
-Download a model from cloud storage
------------------------------------
+Download a model from the model store
+-------------------------------------
 
 To retrieve a model from your chosen storage, use :code:`download()`::
-        
-   file_path = ms.download(local_path=".", domain="example-model", model_id="model-id")
 
-This function will download the :code:`artifacts.tar.gz` that you stored, extract all the files from it, and remove the tar file.
+   file_path = model_store.download(
+      local_path=".",
+      domain="example-model",
+      model_id="model-id"  # Optional
+   )
+
+This function will download an :code:`artifacts.tar.gz` that was stored, extract all the files from it, and remove the tar file.
 
 If you do not provide a :code:`model_id` parameter, the :code:`download()` function will default to the last model that was stored for the given domain.
 
