@@ -49,27 +49,17 @@ tutorial from the scikit-learn website::
             bucket_name=os.environ["GCP_BUCKET_NAME"],
         )
 
-        # Create an archive containing the trained model
-        archive = store.sklearn.create_archive(model=model)
-
-        # Optional: the archive that was created is called "artifacts.tar.gz"
-        # You can add more files into this archive if you want
-
-        # Upload the archive to the model store
-        # The first string is the model's domain - which helps you to group
-        # many models that are trained on the same target together
-        meta = store.upload("sklearn-diabetes-boosting-demo", archive)
-
-        # Optional: the artifacts.tar.gz file is generated into the current
-        # working directory and you can remove them if you do not
-        # need a local copy
-        os.remove(archive)
+        # Upload the model
+        meta_data = store.sklearn.upload(
+            "sklearn-diabetes-boosting-demo",
+            model=model
+        )
 
         # The upload returns meta-data about the model that was uploaded
         # This meta-data has also been sync'ed into the cloud storage
         #  bucket
         print("✅  Finished uploading model!")
-        print(json.dumps(meta, indent=4))
+        print(json.dumps(meta_data, indent=4))
 
         # Download the model back!
         target = f"downloaded-{model_type}-model"
