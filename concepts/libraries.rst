@@ -5,8 +5,10 @@ This library currently supports:
 
 * `CatBoost <https://catboost.ai/>`_
 * `Keras <https://keras.io/>`_
+* `LightGBM <https://lightgbm.readthedocs.io>`_
 * `PyTorch <https://pytorch.org/>`_
-* `Scikit-Learn <https://scikit-learn.org>`_
+* `PyTorch Lightning <https://www.pytorchlightning.ai/>`_
+* `Scikit Learn <https://scikit-learn.org>`_
 * `Tensorflow <https://www.tensorflow.org/>`_
 * `Transformers <https://github.com/huggingface/transformers>`_
 * `XGBoost <https://xgboost.readthedocs.io>`_
