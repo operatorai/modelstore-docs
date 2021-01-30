@@ -3,9 +3,11 @@ The Model Store Structure
 
 This library's model store interacts with a backend of your chosing. The library currently supports:
 
-* A local directory
+* A local file store
 * `Google Cloud Storage <https://cloud.google.com/storage>`_
 * `AWS S3 Buckets <https://aws.amazon.com/s3/>`_
+
+If you do not want to manage your own storage system, we also have a hosted storage that you can use with an API key.
 
 This library stores models in cloud buckets using a pre-defined structure.
 
