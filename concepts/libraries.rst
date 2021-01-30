@@ -28,7 +28,7 @@ The common pattern, across all supported libraries, is to::
    model_store.<library-name>.upload("my-domain", ...)
 
 CatBoost
-------------
+--------
 
 To export a `CatBoost <https://catboost.ai/>`_ model, use::
 
@@ -48,7 +48,7 @@ This will store a multiple formats of your model to the model store:
 The :code:`pool` argument is required `if you are training a multi class model <https://catboost.ai/docs/concepts/python-reference_catboost_save_model.html>`_. The stored model will also contain a :code:`model_attributes.json` file with all of the attributes of the model.
 
 Keras
--------
+-----
 
 To export a `Keras <https://keras.io/>`_ model, use::
 
@@ -64,7 +64,7 @@ To export a `Keras <https://keras.io/>`_ model, use::
 This will create two dumps of the model, based on calling :code:`model.to_json()` and :code:`model.save()`. 
 
 LightGBM
--------
+--------
 
 To export a `LightGBM <https://lightgbm.readthedocs.io>`_ model, use::
 
