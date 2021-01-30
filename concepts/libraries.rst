@@ -25,7 +25,7 @@ The common pattern, across all supported libraries, is to::
    )
 
    # Upload your model by calling `upload()`
-   meta_data = model_store.<library-name>.upload("my-domain", ...)
+   model_store.<library-name>.upload("my-domain", ...)
 
 CatBoost
 ------------
@@ -119,7 +119,7 @@ To export a `scikit-learn <https://scikit-learn.org>`_ model, use::
     clf = clf.fit(X, Y)
 
     # Upload the model
-    meta_data = model_store.sklearn.upload("my-domain", model=clf)
+    model_store.sklearn.upload("my-domain", model=clf)
 
 This will create a :code:`joblib` dump of the model.
 
@@ -140,7 +140,7 @@ To export a `tensorflow <https://www.tensorflow.org/>`_ model, use::
     model.fit(X_train, y_train, epochs=10)
 
     # Upload the model
-    meta_data = model_store.tensorflow.upload("my-domain", model=model)
+    model_store.tensorflow.upload("my-domain", model=model)
 
 This will both save the weights (as a checkpoint file) and export/save the entire model.
 
@@ -160,7 +160,7 @@ To export a `transformers <https://github.com/huggingface/transformers>`_ model,
     )
 
     # Upload the model
-    meta_data = model_store.transformers.upload(
+    model_store.transformers.upload(
         "my-domain", config=config, model=model, tokenizer=tokenizer,
     )
 
@@ -175,7 +175,7 @@ To export an `XGBoost <https://xgboost.readthedocs.io>`_ model, use::
     bst = xgb.train(param, dtrain, num_round)
 
     # Upload the model
-    meta_data = model_store.xgboost.upload("my-domain", model=bst)
+    model_store.xgboost.upload("my-domain", model=bst)
 
 This will add two dumps of the model into the archive; a model dump (in
 an interchangeable format, for loading again later), and a model save (in JSON format, which, to date, is experimental).
