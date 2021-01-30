@@ -37,7 +37,7 @@ To export a `CatBoost <https://catboost.ai/>`_ model, use::
     model.fit(x, y)
 
     # Upload the model
-    meta_data = model_store.catboost.upload("my-domain", model=clf, pool=df)
+    model_store.catboost.upload("my-domain", model=clf, pool=df)
 
 This will store a multiple formats of your model to the model store:
 
@@ -45,9 +45,7 @@ This will store a multiple formats of your model to the model store:
 * JSON
 * Onnx 
 
-The :code:`pool` argument is required `if you are training a multi class model <https://catboost.ai/docs/concepts/python-reference_catboost_save_model.html>`_.
-
-The stored model will also contain a :code:`model_attributes.json` file with all of the attributes of the model.
+The :code:`pool` argument is required `if you are training a multi class model <https://catboost.ai/docs/concepts/python-reference_catboost_save_model.html>`_. The stored model will also contain a :code:`model_attributes.json` file with all of the attributes of the model.
 
 Keras
 -------
@@ -61,9 +59,23 @@ To export a `Keras <https://keras.io/>`_ model, use::
     # ...
 
     # Upload the model
-    meta_data = model_store.keras.upload("my-domain", model=net, optimizer=optim)
+    model_store.keras.upload("my-domain", model=net, optimizer=optim)
 
-This will add two dumps of the model into the archive; based on calling :code:`model.to_json()` and :code:`model.save()`. 
+This will create two dumps of the model, based on calling :code:`model.to_json()` and :code:`model.save()`. 
+
+LightGBM
+-------
+
+To export a `LightGBM <https://lightgbm.readthedocs.io>`_ model, use::
+
+    # Train your model
+    model = lgb.train(param, train_data, num_round, valid_sets=[validation_data])
+    # ...
+
+    # Upload the model
+    model_store.lightgbm.upload(model_domain, model=model)
+
+This will create two dumps of the model, based on calling :code:`model.save_model()` and :code:`model.dump_model()`. 
 
 PyTorch
 -------
@@ -76,12 +88,26 @@ To export a `PyTorch <https://pytorch.org/>`_ model, use::
     # ...
 
     # Upload the model
-    meta_data = model_store.pytorch.upload("my-domain", model=net, optimizer=optim)
+    model_store.pytorch.upload("my-domain", model=net, optimizer=optim)
 
-This will add two dumps of the model into the archive; a :code:`checkpoint.pt` that
-contains the net and optimizer's state (e.g., to continue training at a later date),
-and a :code:`model.pt` that is the result of :code:`torch.save` with the model only
-(e.g., for inference). 
+This will create two dumps of the model; a :code:`checkpoint.pt` that contains the net and optimizer's state (e.g., to continue training at a later date), and a :code:`model.pt` that is the result of :code:`torch.save` with the model only (e.g., for inference). 
+
+PyTorch Lightning
+-----------------
+
+To export a `PyTorch Lightning <https://www.pytorchlightning.ai/>`_ model, use::
+
+    # Train your model
+    model = ExampleLightningNet()
+    trainer = pl.Trainer(max_epochs=5, default_root_dir=mkdtemp())
+    trainer.fit(model, train_dataloader, val_dataloader)
+
+    # Upload the model
+    model_store.pytorch_lightning.upload(
+        model_domain, trainer=trainer, model=model
+    )
+
+This will create a dump of the model; based on calling the :code:`trainer.save_checkpoint(file_path)` function. 
 
 Scikit-Learn
 ------------
@@ -95,7 +121,7 @@ To export a `scikit-learn <https://scikit-learn.org>`_ model, use::
     # Upload the model
     meta_data = model_store.sklearn.upload("my-domain", model=clf)
 
-This will add a :code:`joblib` dump of the model into the archive.
+This will create a :code:`joblib` dump of the model.
 
 Tensorflow
 ------------
