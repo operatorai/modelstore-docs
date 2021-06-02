@@ -3,15 +3,17 @@ Supported Machine Learning Libraries
 
 This library currently supports:
 
-* `CatBoost <https://catboost.ai/>`_
-* `Keras <https://keras.io/>`_
-* `LightGBM <https://lightgbm.readthedocs.io>`_
-* `PyTorch <https://pytorch.org/>`_
-* `PyTorch Lightning <https://www.pytorchlightning.ai/>`_
-* `Scikit Learn <https://scikit-learn.org>`_
-* `Tensorflow <https://www.tensorflow.org/>`_
-* `Transformers <https://github.com/huggingface/transformers>`_
-* `XGBoost <https://xgboost.readthedocs.io>`_
+* :ref:`Catboost<Catboost>`
+* :ref:`Fast AI<Fast AI>`
+* :ref:`Gensim<Gensim>`
+* :ref:`Keras<Keras>`
+* :ref:`LightGBM<LightGBM>`
+* :ref:`PyTorch<PyTorch>`
+* :ref:`PyTorch Lightning<PyTorch Lightning>`
+* :ref:`Scikit-Learn<Scikit-Learn>`
+* :ref:`Tensorflow<Tensorflow>`
+* :ref:`Transformers<Transformers>`
+* :ref:`XGBoost<XGBoost>`
 
 The common pattern, across all supported libraries, is to::
 
@@ -46,6 +48,34 @@ This will store a multiple formats of your model to the model store:
 * Onnx 
 
 The :code:`pool` argument is required `if you are training a multi class model <https://catboost.ai/docs/concepts/python-reference_catboost_save_model.html>`_. The stored model will also contain a :code:`model_attributes.json` file with all of the attributes of the model.
+
+Fast AI
+-------
+
+To export a `FastAI <https://github.com/fastai/fastai/>`_ model, use::
+
+    # Train your model
+    learner = tabular_learner(dl)
+
+    learner.fit_one_cycle(n_epoch=1)
+
+    # Upload the model
+    model_store.fastai.upload("my-domain", learner=learner)
+
+This will create two dumps of the model, based on :code:`learner.save()` and :code:`learner.export()`.
+
+Gensim
+------
+
+To export a `Gensim <https://radimrehurek.com/gensim/>`_ model, use::
+
+    # Train your model
+    model = word2vec.Word2Vec(sentences, min_count=2)
+
+    # Upload the model
+    model_store.gensim.upload("my-domain", model=model)
+
+This will save the model (using :code:`model.save()`) and, if present, will separately save the word vectors (using :code:`model.wv.save()`).
 
 Keras
 -----
