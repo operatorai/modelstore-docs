@@ -3,17 +3,18 @@ Supported Machine Learning Libraries
 
 This library currently supports:
 
-* :ref:`Catboost<Catboost>`
-* :ref:`Fast AI<Fast AI>`
-* :ref:`Gensim<Gensim>`
-* :ref:`Keras<Keras>`
-* :ref:`LightGBM<LightGBM>`
-* :ref:`PyTorch<PyTorch>`
-* :ref:`PyTorch Lightning<PyTorch Lightning>`
-* :ref:`Scikit-Learn<Scikit-Learn>`
-* :ref:`Tensorflow<Tensorflow>`
-* :ref:`Transformers<Transformers>`
-* :ref:`XGBoost<XGBoost>`
+- :ref:`Catboost<Catboost>`
+- :ref:`Fast AI<Fast AI>`
+- :ref:`Gensim<Gensim>`
+- :ref:`Keras<Keras>`
+- :ref:`LightGBM<LightGBM>`
+- :ref:`PyTorch<PyTorch>`
+- :ref:`PyTorch Lightning<PyTorch Lightning>`
+- :ref:`Scikit-Learn<Scikit-Learn>`
+- :ref:`Tensorflow<Tensorflow>`
+- :ref:`Transformers<Transformers>`
+- :ref:`XGBoost<XGBoost>`
+
 
 The common pattern, across all supported libraries, is to::
 
