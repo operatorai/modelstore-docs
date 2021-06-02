@@ -62,6 +62,8 @@ To export a `FastAI <https://github.com/fastai/fastai/>`_ model, use::
     # Upload the model
     model_store.fastai.upload("my-domain", learner=learner)
 
+This will create two dumps of the model, based on :code:`learner.save()` and :code:`learner.export()`.
+
 Gensim
 ------
 
@@ -72,6 +74,8 @@ To export a `Gensim <https://radimrehurek.com/gensim/>`_ model, use::
 
     # Upload the model
     model_store.gensim.upload("my-domain", model=model)
+
+This will save the model (using :code:`model.save()`) and, if present, will separately save the word vectors (using :code:`model.wv.save()`).
 
 Keras
 -----
