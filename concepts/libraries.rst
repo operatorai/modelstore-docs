@@ -3,18 +3,20 @@ Supported Machine Learning Libraries
 
 This library currently supports:
 
+- :ref:`Annoy<Annoy>`
 - :ref:`Catboost<Catboost>`
 - :ref:`Fast AI<Fast AI>`
 - :ref:`Gensim<Gensim>`
 - :ref:`Keras<Keras>`
 - :ref:`LightGBM<LightGBM>`
+- :ref:`Mxnet<Mxnet>`
+- :ref:`Onnx<Onxx>`
 - :ref:`PyTorch<PyTorch>`
 - :ref:`PyTorch Lightning<PyTorch Lightning>`
 - :ref:`Scikit-Learn<Scikit-Learn>`
 - :ref:`Tensorflow<Tensorflow>`
 - :ref:`Transformers<Transformers>`
 - :ref:`XGBoost<XGBoost>`
-
 
 The common pattern, across all supported libraries, is to::
 
@@ -28,7 +30,7 @@ The common pattern, across all supported libraries, is to::
    )
 
    # Upload your model by calling `upload()`
-   model_store.<library-name>.upload("my-domain", ...)
+   model_store.upload("my-domain", <kwargs>)
 
 CatBoost
 --------
@@ -40,7 +42,7 @@ To export a `CatBoost <https://catboost.ai/>`_ model, use::
     model.fit(x, y)
 
     # Upload the model
-    model_store.catboost.upload("my-domain", model=clf, pool=df)
+    model_store.upload("my-domain", model=clf, pool=df)
 
 This will store a multiple formats of your model to the model store:
 
@@ -61,7 +63,7 @@ To export a `FastAI <https://github.com/fastai/fastai/>`_ model, use::
     learner.fit_one_cycle(n_epoch=1)
 
     # Upload the model
-    model_store.fastai.upload("my-domain", learner=learner)
+    model_store.upload("my-domain", learner=learner)
 
 This will create two dumps of the model, based on :code:`learner.save()` and :code:`learner.export()`.
 
@@ -74,7 +76,7 @@ To export a `Gensim <https://radimrehurek.com/gensim/>`_ model, use::
     model = word2vec.Word2Vec(sentences, min_count=2)
 
     # Upload the model
-    model_store.gensim.upload("my-domain", model=model)
+    model_store.upload("my-domain", model=model)
 
 This will save the model (using :code:`model.save()`) and, if present, will separately save the word vectors (using :code:`model.wv.save()`).
 
@@ -90,7 +92,7 @@ To export a `Keras <https://keras.io/>`_ model, use::
     # ...
 
     # Upload the model
-    model_store.keras.upload("my-domain", model=net, optimizer=optim)
+    model_store.upload("my-domain", model=net, optimizer=optim)
 
 This will create two dumps of the model, based on calling :code:`model.to_json()` and :code:`model.save()`. 
 
@@ -104,7 +106,7 @@ To export a `LightGBM <https://lightgbm.readthedocs.io>`_ model, use::
     # ...
 
     # Upload the model
-    model_store.lightgbm.upload(model_domain, model=model)
+    model_store.upload(model_domain, model=model)
 
 This will create two dumps of the model, based on calling :code:`model.save_model()` and :code:`model.dump_model()`. 
 
@@ -119,7 +121,7 @@ To export a `PyTorch <https://pytorch.org/>`_ model, use::
     # ...
 
     # Upload the model
-    model_store.pytorch.upload("my-domain", model=net, optimizer=optim)
+    model_store.upload("my-domain", model=net, optimizer=optim)
 
 This will create two dumps of the model; a :code:`checkpoint.pt` that contains the net and optimizer's state (e.g., to continue training at a later date), and a :code:`model.pt` that is the result of :code:`torch.save` with the model only (e.g., for inference). 
 
@@ -134,7 +136,7 @@ To export a `PyTorch Lightning <https://www.pytorchlightning.ai/>`_ model, use::
     trainer.fit(model, train_dataloader, val_dataloader)
 
     # Upload the model
-    model_store.pytorch_lightning.upload(
+    model_store.upload(
         model_domain, trainer=trainer, model=model
     )
 
@@ -150,7 +152,7 @@ To export a `scikit-learn <https://scikit-learn.org>`_ model, use::
     clf = clf.fit(X, Y)
 
     # Upload the model
-    model_store.sklearn.upload("my-domain", model=clf)
+    model_store.upload("my-domain", model=clf)
 
 This will create a :code:`joblib` dump of the model.
 
@@ -171,7 +173,7 @@ To export a `tensorflow <https://www.tensorflow.org/>`_ model, use::
     model.fit(X_train, y_train, epochs=10)
 
     # Upload the model
-    model_store.tensorflow.upload("my-domain", model=model)
+    model_store.upload("my-domain", model=model)
 
 This will both save the weights (as a checkpoint file) and export/save the entire model.
 
@@ -191,7 +193,7 @@ To export a `transformers <https://github.com/huggingface/transformers>`_ model,
     )
 
     # Upload the model
-    model_store.transformers.upload(
+    model_store.upload(
         "my-domain", config=config, model=model, tokenizer=tokenizer,
     )
 
@@ -206,7 +208,7 @@ To export an `XGBoost <https://xgboost.readthedocs.io>`_ model, use::
     bst = xgb.train(param, dtrain, num_round)
 
     # Upload the model
-    model_store.xgboost.upload("my-domain", model=bst)
+    model_store.upload("my-domain", model=bst)
 
 This will add two dumps of the model into the archive; a model dump (in
 an interchangeable format, for loading again later), and a model save (in JSON format, which, to date, is experimental).
