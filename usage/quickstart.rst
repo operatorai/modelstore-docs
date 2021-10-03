@@ -1,70 +1,99 @@
 Quick Start
 =======================================
 
-This library's :code:`ModelStore` enables you to export trained ML models and store it to your choice of storage.
+Install using pip
+-----------------
 
-Create a model store instance
------------------------------
+The model store library is available via Pypi:
 
-:code:`modelstore` currently supports storing models to:
+.. code-block:: bash
 
-* A directory in a local file system
-* Google Cloud buckets: set up a Google Cloud project and have `create a cloud storage bucket <https://cloud.google.com/storage/docs/creating-buckets>`_.
-* AWS S3 buckets: set up a project and `create an s3 bucket <https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html>`_.
-* 🆕 A storage service that we manage for you. This requires you to have API keys.
+   pip install modelstore
 
-To save your models, create a model store instance with one of the following::
-   
-   from modelstore import ModelStore
+Create a model store instance and point it to your storage
+----------------------------------------------------------
 
-   # A local file system
-   model_store = ModelStore.from_file_system(
-      root="/path/to/directory",
-   )
+The model store library supports storing models to blob storage across different cloud providers:
 
-   # Google cloud bucket
+- A file system;
+- `Google Cloud storage buckets <https://cloud.google.com/storage/docs/creating-buckets>`_
+- `AWS S3 buckets <https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html>`_
+- `Azure Blob Storage containers <https://azure.microsoft.com/en-gb/services/storage/blobs/>`_
+
+To start, import :code:`ModelStore` with:
+
+.. code-block:: python
+
+    from modelstore import ModelStore
+
+And then create a model store instance by using one of the following factory methods.
+
+**File System Storage**
+
+.. code-block:: python
+
+    model_store = ModelStore.from_file_system(root="/path/to/directory")
+
+**Google Cloud Storage Bucket**
+
+.. code-block:: python
+
    model_store = ModelStore.from_gcloud(
       project_name="my-project",
       bucket_name="my-bucket",
    )
 
-   # AWS S3 bucket
+**AWS s3 Bucket**
+
+.. code-block:: python
+
    model_store = ModelStore.from_aws_s3(
       bucket_name="my-bucket",
    )
 
-   # A managed storage service
-   model_store = ModelStore.from_api_key(
-      access_key_id="<your-access-key-id>",
-      secret_access_key="<your-secret-access-key>"
-   )
+**Azure Blob Storage**
+
+.. code-block:: python
+
+   model_store = ModelStore.from_azure(container_name="my-container-name")
+
 
 Upload a model to the model store
 -----------------------------------
 
-The :code:`modelstore` library has separate up functions to store models that were trained with different ML libraries, such as scikit-learn or tensorflow. They all follow the same pattern.
+Model store has an :code:`upload()` function that will create an archive containing your model and upload it to your storage. 
 
-For example, to store a :code:`scikit-learn` model, use::
+Whenever you upload a model, you need to specify which domain it belongs to. A _domain_ is a string that model store uses to group several models that are for the same end-usage together.
 
-   model_store.sklearn.upload(domain="domain-name", model=my_model)
+For example, let's say you've trained a scikit-learn model (which is stored in a variable called :code:`clf`) that is going to be used in a spam classifier domain.
 
-When you upload a model, you need to specify a **domain**. This is the string that
-groups several models that are for the same end-usage together. For example, let's assume you are training several models to predict whether an email is spam. Setting :code:`domain="spam-detection"` will store all of those models together, and you will then be able to list and retrieve them all.
+To store the model, use:
 
-To read more about the supported libraries, see: :doc:`../concepts/libraries`.
+.. code-block:: python
 
-To read more about how this library organises models, see :doc:`../concepts/modelstore`.
+   meta_data = model_store.upload("spam-detection", model=clf)
+
+The :code:`upload()` function returns a dictionary containing useful meta data about your model - including the id that has been assigned to it, which is in :code:`meta_data["model"]["model_id"]`.
+
+Load a model from the model store
+---------------------------------
+
+Once a model has been stored, you can load it straight from storage back into memory using model store's :code:`load()` function. 
+
+.. code-block:: python
+
+   clf = model_store.load("spam-detection", model_id="abcd-abcd-abdc")
 
 Download a model from the model store
 -------------------------------------
 
-To retrieve a model from your chosen storage, use :code:`download()`::
+If you would rather download the model, and not load it into memory, you can use model store's :code:`download()` function. 
+
+.. code-block:: python
 
    file_path = model_store.download(
       local_path=".", # Where to download the model to
       domain="example-model", # The model's domain
       model_id="model-id"  # Optional; the ID of the specific model
    )
-
-If you do not provide a :code:`model_id` parameter, the :code:`download()` function will default to the last model that was stored for the given domain.
 
