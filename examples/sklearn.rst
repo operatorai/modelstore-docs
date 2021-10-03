@@ -44,13 +44,13 @@ tutorial from the scikit-learn website::
         # This example assumes that you have the GCP project name and bucket id
         # saved as environment variables - replace the os.environ below with
         # your values
-        store = ModelStore.from_gcloud(
+        model_store = ModelStore.from_gcloud(
             project_name=os.environ["GCP_PROJECT_ID"],
             bucket_name=os.environ["GCP_BUCKET_NAME"],
         )
 
         # Upload the model
-        meta_data = store.sklearn.upload(
+        meta_data = model_store.upload(
             "sklearn-diabetes-boosting-demo",
             model=model
         )
