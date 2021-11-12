@@ -15,11 +15,11 @@ modelstore
 
    usage/installation
    usage/quickstart
+   concepts/modelstore
    concepts/libraries
    concepts/storage
-   concepts/modelstore
-   examples/sklearn
-   examples/aws
+   concepts/cli
+   examples/index
 
 This documentation is open source. If you would like to add anything to it, please `open a pull request on Github <https://github.com/operatorai/modelstore-docs>`_.
 

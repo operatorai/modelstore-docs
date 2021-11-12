@@ -1,5 +1,5 @@
-Storing models in AWS s3
-========================
+Common errors when setting up s3 storage
+========================================
 
 This page describes the steps you need to take to store models in s3.
 

@@ -1,5 +1,5 @@
-Scikit-Learn Example
-====================
+Uploading a scikit-learn model
+==============================
 
 This example is based on the `GradientBoostingRegressor <https://scikit-learn.org/stable/auto_examples/ensemble/plot_gradient_boosting_regression.html#sphx-glr-auto-examples-ensemble-plot-gradient-boosting-regression-py>`_
 tutorial from the scikit-learn website::
@@ -57,7 +57,7 @@ tutorial from the scikit-learn website::
 
         # The upload returns meta-data about the model that was uploaded
         # This meta-data has also been sync'ed into the cloud storage
-        #  bucket
+        # bucket
         print("✅  Finished uploading model!")
         print(json.dumps(meta_data, indent=4))
 
