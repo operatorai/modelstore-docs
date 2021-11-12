@@ -63,7 +63,7 @@ Upload a model to the model store
 
 Model store has an :code:`upload()` function that will create an archive containing your model and upload it to your storage. 
 
-Whenever you upload a model, you need to specify which domain it belongs to. A _domain_ is a string that model store uses to group several models that are for the same end-usage together.
+Whenever you upload a model, you need to specify which domain it belongs to. A "domain" is a string that model store uses to group several models that are for the same end-usage together.
 
 For example, let's say you've trained a scikit-learn model (which is stored in a variable called :code:`clf`) that is going to be used in a spam classifier domain.
 
@@ -73,7 +73,7 @@ To store the model, use:
 
    meta_data = model_store.upload("spam-detection", model=clf)
 
-The :code:`upload()` function returns a dictionary containing useful meta data about your model - including the id that has been assigned to it, which is in :code:`meta_data["model"]["model_id"]`.
+The :code:`upload()` function returns a dictionary containing meta data about your model - including the id that has been assigned to it, which is in :code:`meta_data["model"]["model_id"]`.
 
 Load a model from the model store
 ---------------------------------

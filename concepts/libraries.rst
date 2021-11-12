@@ -58,8 +58,8 @@ This library currently supports several different machine learning libraries. To
      - `XGBoost Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/libraries/xgboost_example.py>`_
 
 
-If a library is not supported
------------------------------
+What to do if a library is not supported
+----------------------------------------
 
 If you are using a machine learning library that is not listed above, you can still use model store to upload and version your models. You will not be able to use :code:`load()` but you will be able to :code:`download()` them back.
 

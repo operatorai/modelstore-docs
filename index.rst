@@ -10,15 +10,16 @@ modelstore
 - Load models straight from storage back into memory
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    usage/installation
    usage/quickstart
    concepts/libraries
-   storage/aws
+   concepts/storage
    concepts/modelstore
    examples/sklearn
+   examples/aws
 
 This documentation is open source. If you would like to add anything to it, please `open a pull request on Github <https://github.com/operatorai/modelstore-docs>`_.
 
