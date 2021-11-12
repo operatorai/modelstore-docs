@@ -26,7 +26,7 @@ This documentation is open source. If you would like to add anything to it, plea
 License
 ==================
 
-    Copyright 2020 Neal Lathia
+    Copyright 2021 Neal Lathia
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -43,6 +43,4 @@ License
 Contact
 =======
 
-If you have any questions or feedback, feel free to email me: :code:`neal.lathia@gmail.com`.
-
-If you want to follow along as this (and other) tools are developed, `sign up here <https://operatorai.substack.com>`_.
+If you have any questions or feedback, feel free to `open an issue on Github <https://github.com/operatorai/modelstore/issues>`_ or email me: :code:`neal.lathia@gmail.com` or 

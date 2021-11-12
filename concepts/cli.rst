@@ -1,13 +1,17 @@
 Modelstore CLI commands
 =======================
 
-You can use modelstore (version > 0.0.71) from the command line. For example, to download a model, you can use:
+You can use modelstore (version > 0.0.71) from the command line to download a model. From within your virtual environment, you can use:
 
 .. code-block:: bash
 
     python -m modelstore download <domain> <model-id>
 
 Modelstore figures out how to read from your storage by looking for specific environment variables.
+
+Your environment needs to define (1) a value for MODEL_STORE_STORAGE which tells modelstore what type of storage you are using, and (2) values that depend on the specific type of storage that you are using.
+
+All of these are summarised in the table below:
 
 .. list-table:: Storage environment variables
    :widths: 20 20 80
