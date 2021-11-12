@@ -1,9 +1,9 @@
-Storing models in AWS s3
-========================
+Common errors when setting up s3 storage
+========================================
 
 This page describes the steps you need to take to store models in s3.
 
-Before you start, you will need to **create the s3 bucket you want to use**. The modelstore library does not currently create s3 buckets and assumes they exist already. To do this, you can follow the `creating a bucket <https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html>`_ AWS documentation.
+Before you start, you will need to **create the s3 bucket you want to use**. The modelstore library does not create s3 buckets and assumes they exist already. To do this, you can follow the `creating a bucket <https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html>`_ AWS documentation.
 
 Next, install modelstore and boto3 in your Python environment:
 
