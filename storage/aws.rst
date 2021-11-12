@@ -108,3 +108,10 @@ But if you use the region code, it should not error:
     >>> model_store = ModelStore.from_aws_s3(bucket_name=os.environ["AWS_BUCKET_NAME"], region="eu-central-1")
     >>> model_store.list_domains()
     ['diabetes-boosting-demo']
+
+Seeing another exception?
+-------------------------
+
+If you need further support, please `create an issue on Github <https://github.com/operatorai/modelstore/issues>`_.
+
+This documentation is open source. If you would like to add anything to it, please `open a pull request on Github <https://github.com/operatorai/modelstore-docs>`_.
