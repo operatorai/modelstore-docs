@@ -47,6 +47,9 @@ This library currently supports several different machine learning libraries. To
    * - `scikit-learn <https://scikit-learn.org>`_
      - model
      - `scikit-learn Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/libraries/sklearn_example.py>`_
+   * - `shap <https://shap.readthedocs.io/en/latest/>`_
+     - explainer
+     - `shap Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/libraries/shap_example.py>`_
    * - `Tensorflow <https://www.tensorflow.org/>`_
      - model
      - `Tensorflow Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/libraries/tensorflow_example.py>`_
