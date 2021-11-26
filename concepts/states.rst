@@ -1,5 +1,5 @@
-Model states
-============
+Controlling model states
+========================
 
 This library enables you to control models by setting their state. For example, you may want to set a model to have state "production." You can then query the model store for models by state, and change model states.
 
