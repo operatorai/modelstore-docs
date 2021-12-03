@@ -47,6 +47,9 @@ This library currently supports several different machine learning libraries. To
    * - `scikit-learn <https://scikit-learn.org>`_
      - model
      - `scikit-learn Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/libraries/sklearn_example.py>`_
+   * - `skorch <https://skorch.readthedocs.io/en/stable/>`_
+     - model
+     - `skorch Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/libraries/skorch_example.py>`_
    * - `shap <https://shap.readthedocs.io/en/latest/>`_
      - explainer
      - `shap Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/libraries/shap_example.py>`_
