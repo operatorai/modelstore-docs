@@ -4,8 +4,13 @@ Modelstore CLI commands
 You can use modelstore (version > 0.0.71) from the command line to download a model. From within your virtual environment, you can use:
 
 .. code-block:: bash
-
+    
+    # To upload a model
+    python -m modelstore upload <domain> </path/to/file>
+    
+    # To download a model
     python -m modelstore download <domain> <model-id>
+
 
 Modelstore figures out how to read from your storage by looking for specific environment variables.
 
