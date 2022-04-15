@@ -106,3 +106,29 @@ When you load these models, model store returns a dictionary with both models:
     models = modelstore.load(model_domain, model_id)
     clf = models["sklearn"]
     explainer = models["shap"]
+
+Uploading extra files with the model
+------------------------------------
+
+There are some cases where you may want to upload more files alongside the model.
+
+This library supports uploading a model with one or more extra files.
+
+For example, you might want to upload a classifier **and** the predictions it made on the test set.
+
+.. code-block:: python
+
+    clf = RandomForestClassifier()
+    clf.fit(X_train, y_train)
+
+    predictions = clf.predict(X_test)
+    file_path = "predictions.csv"
+    numpy.savetxt(file_path, predictions, delimiter=",")
+
+    modelstore.upload("my-domain", model=model, extras=file_path)
+
+When you load these models, the extra files are not loaded into memory:
+
+.. code-block:: python
+
+    clf = modelstore.load(model_domain, model_id)
