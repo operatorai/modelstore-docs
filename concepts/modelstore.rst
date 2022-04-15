@@ -11,6 +11,15 @@ The model store library then allows you to list the models that are in a domain 
 Under the hood, a domain is just a string, so it is up to you how you would like
 to use it.
 
+Model State
+-----------
+
+A **model state** is a tag that you can use to control the lifecycle of a model in a given domain.
+
+For example, you may want to have some models tagged as being in state "production" or state "shadow." You can achieve this by creating a state and then setting a model's state.
+
+Under the hood, a model state name is just a string, so it is up to you how you would like to use it.
+
 Model Archive
 -------------
 
@@ -26,7 +35,7 @@ Model Meta-data
 
 The meta-data includes:
 
-* A unique `UUID4` for your model;
+* A unique id for your model;
 * Details about where the model is being uploaded to (the bucket and prefix);
 * The Python runtime that was used (e.g., "python:3.7.0")
 * The user `who ran the training <https://docs.python.org/3/library/getpass.html#getpass.getuser>`_.
