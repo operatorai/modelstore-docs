@@ -1,2 +1,2 @@
-export PYTHON_VERSION=3.7.0
+export PYTHON_VERSION=3.8.12
 export VIRTUALENV_NAME=$(pyenv local)

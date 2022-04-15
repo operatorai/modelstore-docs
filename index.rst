@@ -27,7 +27,7 @@ This documentation is open source. If you would like to add anything to it, plea
 License
 ==================
 
-    Copyright 2021 Neal Lathia
+    Copyright 2022 Neal Lathia
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
