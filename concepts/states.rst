@@ -23,8 +23,8 @@ Before doing anything with a model state, you need to create it. This is a one-t
 
     model_store.create_model_state(production_state)
 
-Set a model's state
--------------------
+Set and unset a model's state
+-----------------------------
 
 Once a state has been created, you can add a model to a state. You can add a model to more than one state, and you can add more than one model to a state.
 

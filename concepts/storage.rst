@@ -23,3 +23,26 @@ This library currently supports several places where you can save your models. Y
      - A path
      - `File system Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-storage/modelstores.py#L44-L49>`_
 
+
+File system storage
+-------------------
+
+The file system model storage assumes that (a) the root directory exists, and (b) the library user has permission to write to it. 
+
+If you want to create the root directory if it does not exist, pass along the `create_directory=True` argument.
+
+.. code-block:: python
+
+    model_store = ModelStore.from_file_system(
+      root_directory="/path/to/directory",
+      create_directory=True,
+    )
+
+
+Read-only access
+----------------
+
+The three cloud storage types (AWS s3, Google GCS, Azure Containers) assume that (a) the bucket/container exists, and (b) the library user has both read and write permissions.
+
+As of 0.0.74, modelstore also supports read-only access to public Google Cloud Storage buckets.
+
