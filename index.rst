@@ -18,8 +18,10 @@ modelstore
    concepts/modelstore
    concepts/libraries
    concepts/storage
+   concepts/api
    concepts/states
    concepts/cli
+   concepts/advanced
    examples/index
 
 This documentation is open source. If you would like to add anything to it, please `open a pull request on Github <https://github.com/operatorai/modelstore-docs>`_.
