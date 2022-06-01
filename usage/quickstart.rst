@@ -32,7 +32,7 @@ And then create a model store instance by using one of the following factory met
 
 .. code-block:: python
 
-    model_store = ModelStore.from_file_system(root="/path/to/directory")
+    model_store = ModelStore.from_file_system(root_directory="/path/to/directory")
 
 **Google Cloud Storage Bucket**
 
