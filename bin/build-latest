@@ -1,5 +1,5 @@
+# Triggers a build on readthedocs.io
 set -e
-set -x
 
 curl \
   -X POST \
