@@ -1,0 +1,7 @@
+set -e
+set -x
+
+curl \
+  -X POST \
+  -H "Authorization: Token ${READTHEDOCS_TOKEN}" \
+  https://readthedocs.org/api/v3/projects/modelstore/versions/latest/builds/
