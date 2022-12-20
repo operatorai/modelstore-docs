@@ -30,6 +30,7 @@ By saving your models using :code:`modelstore`, you can:
    :maxdepth: 1
    :caption: Advanced usage
 
+   advanced/upload
    advanced/api
    advanced/states
    advanced/cli
