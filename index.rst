@@ -1,27 +1,39 @@
 modelstore
 =======================================
 
-:code:`modelstore` is a Python library that enables you to create a registry for your machine learning models. This enables you to automatically:
+:code:`modelstore` is a machine learning model registry Python library.
+
+By saving your models using :code:`modelstore`, you can:
 
 - Version your models;
-- Save models to your cloud storage provider;
+- Upload model artefacts to your choice of storage;
 - Collect meta data about the models your uploading;
 - Control models' states;
 - Load models straight from storage back into memory
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contents:
+   :caption: Basic usage
 
-   usage/installation
-   usage/quickstart
+   basics/installation
+   basics/quickstart
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Under the hood
+
    concepts/modelstore
    concepts/libraries
    concepts/storage
-   concepts/api
-   concepts/states
-   concepts/cli
-   concepts/advanced
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Advanced usage
+
+   advanced/api
+   advanced/states
+   advanced/cli
+   advanced/advanced
    examples/index
 
 This documentation is open source. If you would like to add anything to it, please `open a pull request on Github <https://github.com/operatorai/modelstore-docs>`_.
