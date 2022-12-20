@@ -1,10 +1,7 @@
-Additional functionality
-========================
-
 Deleting Models
----------------
+===============
 
-Deleting a model removes the files from the registry. If you query for a model that has been deleted, a ModelDeletedException is raised.
+Deleting a model removes the files from the registry. If you query for a model that has been deleted, a :code:`ModelDeletedException` is raised.
 
 
 .. code-block:: python
@@ -14,4 +11,3 @@ Deleting a model removes the files from the registry. If you query for a model t
 
     # Will raise a ModelDeletedException
     meta_data = model_store.get_model_info("my-domain", "my-model")
-

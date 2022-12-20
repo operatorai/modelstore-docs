@@ -1,7 +1,7 @@
 Modelstore CLI commands
 =======================
 
-You can use modelstore (version > 0.0.71) from the command line to download a model. From within your virtual environment, you can use:
+You can use modelstore (version > 0.0.71) from the command line to upload and download models:
 
 .. code-block:: bash
     

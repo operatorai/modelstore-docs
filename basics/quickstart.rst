@@ -1,8 +1,8 @@
 Quick Start
 =======================================
 
-Install using pip
------------------
+Install using pip, import in your code
+--------------------------------------
 
 The model store library is available via Pypi:
 
@@ -10,23 +10,24 @@ The model store library is available via Pypi:
 
    pip install modelstore
 
+In your code, import :code:`ModelStore` with:
+
+.. code-block:: python
+
+    from modelstore import ModelStore
+
 Create a model store instance and point it to your storage
 ----------------------------------------------------------
 
 The model store library supports storing models to blob storage across different cloud providers:
 
 - A file system;
-- `Google Cloud storage buckets <https://cloud.google.com/storage/docs/creating-buckets>`_
-- `AWS S3 buckets <https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html>`_
-- `Azure Blob Storage containers <https://azure.microsoft.com/en-gb/services/storage/blobs/>`_
+- Google Cloud storage buckets
+- AWS s3 buckets
+- Azure blob storage containers
+- MinIO object storage
 
-To start, import :code:`ModelStore` with:
-
-.. code-block:: python
-
-    from modelstore import ModelStore
-
-And then create a model store instance by using one of the following factory methods.
+Create a model store instance by using one of the following factory methods.
 
 **File System Storage**
 
@@ -83,17 +84,4 @@ Once a model has been stored, you can load it straight from storage back into me
 .. code-block:: python
 
    clf = model_store.load("spam-detection", model_id="abcd-abcd-abdc")
-
-Download a model from the model store
--------------------------------------
-
-If you would rather download the model, and not load it into memory, you can use model store's :code:`download()` function. 
-
-.. code-block:: python
-
-   file_path = model_store.download(
-      local_path=".", # Where to download the model to
-      domain="example-model", # The model's domain
-      model_id="model-id"  # Optional; the ID of the specific model
-   )
 
