@@ -12,16 +12,19 @@ This library currently supports several places where you can save your models. Y
      - Example code
    * - `AWS s3 <https://aws.amazon.com/s3/>`_
      - The name of an existing s3 bucket
-     - `AWS Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-storage/modelstores.py#L17-L21>`_
+     - `AWS Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/modelstores.py#L36-L41>`_
+   * - `MinIO s3 storage <https://min.io/>`_
+     - The name of an existing s3 bucket
+     - `MinIO Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/modelstores.py#L44-L51>`_
    * - `Azure Container <https://docs.microsoft.com/en-us/azure/container-instances/>`_
      - The name of an existing container
-     - `Azure Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-storage/modelstores.py#L24-L31>`_
+     - `Azure Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/modelstores.py#L54-L63>`_
    * - `Google Cloud Storage <https://cloud.google.com/storage>`_
      - The name of an existing bucket
-     - `Cloud Storage Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-storage/modelstores.py#L34-L41>`_
+     - `Cloud Storage Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/modelstores.py#L66-L74>`_
    * - File system
      - A path
-     - `File system Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-storage/modelstores.py#L44-L49>`_
+     - `File system Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/modelstores.py#L85>`_
 
 
 File system storage
