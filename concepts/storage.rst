@@ -14,7 +14,7 @@ This library currently supports several places where you can save your models. Y
      - The name of an existing s3 bucket
      - `AWS Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/modelstores.py#L36-L41>`_
    * - `MinIO s3 storage <https://min.io/>`_
-     - The name of an existing s3 bucket
+     - The name of an existing bucket and access credentials
      - `MinIO Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/modelstores.py#L44-L51>`_
    * - `Azure Container <https://docs.microsoft.com/en-us/azure/container-instances/>`_
      - The name of an existing container
@@ -40,12 +40,4 @@ If you want to create the root directory if it does not exist, pass along the `c
       root_directory="/path/to/directory",
       create_directory=True,
     )
-
-
-Read-only access
-----------------
-
-The three cloud storage types (AWS s3, Google GCS, Azure Containers) assume that (a) the bucket/container exists, and (b) the library user has both read and write permissions.
-
-As of 0.0.74, modelstore also supports read-only access to public Google Cloud Storage buckets.
 

@@ -17,6 +17,7 @@ By saving your models using :code:`modelstore`, you can:
 
    basics/installation
    basics/quickstart
+   basics/sklearn
 
 .. toctree::
    :maxdepth: 1
@@ -31,11 +32,12 @@ By saving your models using :code:`modelstore`, you can:
    :caption: Advanced usage
 
    advanced/upload
-   advanced/api
+   advanced/download
+   advanced/read
+   advanced/delete
    advanced/states
    advanced/cli
-   advanced/advanced
-   examples/index
+   advanced/troubleshooting/index
 
 This documentation is open source. If you would like to add anything to it, please `open a pull request on Github <https://github.com/operatorai/modelstore-docs>`_.
 
