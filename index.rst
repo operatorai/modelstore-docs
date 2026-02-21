@@ -6,7 +6,7 @@ modelstore
 By saving your models using :code:`modelstore`, you can:
 
 - Version your models;
-- Upload model artefacts to your choice of storage;
+- Upload model artifacts to your choice of storage;
 - Collect meta data about the models your uploading;
 - Control models' states;
 - Load models straight from storage back into memory
