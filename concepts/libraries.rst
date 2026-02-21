@@ -17,6 +17,9 @@ This library currently supports several different machine learning libraries. To
    * - `Annoy <https://github.com/spotify/annoy>`_
      - model
      - `Annoy Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/libraries/annoy_example.py>`_
+   * - `CausalML <https://causalml.readthedocs.io/en/latest/index.html>`_
+     - model
+     - `CausalML Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/libraries/causalml_example.py>`_
    * - `CatBoost <https://catboost.ai/>`_
      - model, pool (for classification)
      - `Catboost Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/libraries/catboost_example.py>`_
@@ -26,15 +29,12 @@ This library currently supports several different machine learning libraries. To
    * - `Gensim <https://radimrehurek.com/gensim/>`_
      - model
      - `Word2vec Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/libraries/gensim_example.py>`_
-   * - `Keras <https://keras.io/>`_
-     - model, optimizer
+   * - `Keras / TensorFlow <https://keras.io/>`_
+     - model
      - `Keras Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/libraries/keras_example.py>`_
    * - `LightGBM <https://lightgbm.readthedocs.io>`_
      - model
      - `LightGBM Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/libraries/lightgbm_example.py>`_
-   * - `Mxnet <https://mxnet.apache.org>`_
-     - model, epoch
-     - `Mxnet Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/libraries/mxnet_example.py>`_
    * - `Onnx <https://onnx.ai/>`_
      - model
      - `Onnx Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/libraries/onnx_example.py>`_
@@ -59,11 +59,14 @@ This library currently supports several different machine learning libraries. To
    * - `skorch <https://skorch.readthedocs.io/en/stable/>`_
      - model
      - `skorch Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/libraries/skorch_example.py>`_
+   * - `statsmodels <https://www.statsmodels.org/>`_
+     - model
+     - n/a
    * - `Tensorflow <https://www.tensorflow.org/>`_
      - model
      - `Tensorflow Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/libraries/tensorflow_example.py>`_
    * - `Transformers <https://github.com/huggingface/transformers>`_
-     - config, model, tokenizer
+     - model; optional: config, tokenizer, processor
      - `Transformers Example <https://github.com/operatorai/modelstore/blob/main/examples/examples-by-ml-library/libraries/transformers_example.py>`_
    * - `XGBoost <https://xgboost.readthedocs.io>`_
      - model

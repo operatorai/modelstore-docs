@@ -48,3 +48,31 @@ When you load these models, the extra files are not loaded into memory:
 .. code-block:: python
 
     clf = modelstore.load(model_domain, model_id)
+
+Adding extra metadata to a model
+---------------------------------
+
+You can attach arbitrary key-value metadata to any upload using the :code:`extra_metadata` keyword argument:
+
+.. code-block:: python
+
+    meta_data = model_store.upload(
+        "my-domain",
+        model=clf,
+        extra_metadata={"accuracy": 0.95, "dataset": "v2"},
+    )
+
+Using a custom model ID
+-----------------------
+
+By default, modelstore assigns a UUID4 to each uploaded model. You can override this by passing a :code:`model_id` argument:
+
+.. code-block:: python
+
+    meta_data = model_store.upload(
+        "my-domain",
+        model=clf,
+        model_id="my-custom-id-v1",
+    )
+
+Model IDs may contain alphanumeric characters, hyphens, underscores, and periods. If the model ID already exists in the domain, a :code:`ModelExistsException` is raised.

@@ -21,11 +21,13 @@ Create a model store instance and point it to your storage
 
 The model store library supports storing models to blob storage across different cloud providers:
 
-- A file system;
-- Google Cloud storage buckets
-- AWS s3 buckets
-- Azure blob storage containers
+- A file system
+- Google Cloud Storage buckets
+- AWS S3 buckets
+- Azure Blob Storage containers
 - MinIO object storage
+- Backblaze B2 buckets
+- HDFS
 
 Create a model store instance by using one of the following factory methods.
 
@@ -44,7 +46,7 @@ Create a model store instance by using one of the following factory methods.
       bucket_name="my-bucket",
    )
 
-**AWS s3 Bucket**
+**AWS S3 Bucket**
 
 .. code-block:: python
 
@@ -57,6 +59,35 @@ Create a model store instance by using one of the following factory methods.
 .. code-block:: python
 
    model_store = ModelStore.from_azure(container_name="my-container-name")
+
+**MinIO Object Storage**
+
+.. code-block:: python
+
+   model_store = ModelStore.from_minio(
+      endpoint="play.min.io",
+      access_key="my-access-key",
+      secret_key="my-secret-key",
+      bucket_name="my-bucket",
+   )
+
+**Backblaze B2**
+
+.. code-block:: python
+
+   model_store = ModelStore.from_backblaze(
+      bucket_name="my-bucket",
+      key_id="my-key-id",
+      application_key="my-application-key",
+      endpoint="https://s3.us-west-004.backblazeb2.com",
+      region="us-west-004",
+   )
+
+**HDFS**
+
+.. code-block:: python
+
+   model_store = ModelStore.from_hdfs(root_prefix="/path/to/hdfs/directory")
 
 
 Upload a model to the model store

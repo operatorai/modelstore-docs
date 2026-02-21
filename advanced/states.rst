@@ -34,22 +34,37 @@ Once a state has been created, you can add a model to a state. You can add a mod
     model_id = "my-model-id"
     production_state = "production"
 
-    model_store.set_model_state(model_domain, model_id, state_name)
+    model_store.set_model_state(model_domain, model_id, production_state)
+
+To retrieve all states that have been set for a model:
+
+.. code-block:: python
+
+    states = model_store.get_model_states(model_domain, model_id)
 
 To unset a model's state, you can use:
 
 .. code-block:: python
 
-    model_store.remove_model_state(model_domain, model_id, state_name)
+    model_store.remove_model_state(model_domain, model_id, production_state)
+
+Delete a state
+--------------
+
+To delete a state entirely (removes the state from all models that were in it):
+
+.. code-block:: python
+
+    model_store.delete_model_state(production_state)
 
 Find models by state
 --------------------
 
-After setting the state of one or more models, you can find them by adding the state name to the list versions function:
+After setting the state of one or more models, you can find them by passing the state name to :code:`list_models()`:
 
 .. code-block:: python
 
-    model_ids = modelstore.list_versions(
+    models = model_store.list_models(
         model_domain,
         state_name=production_state
     )

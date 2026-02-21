@@ -30,6 +30,19 @@ All of these are summarised in the table below:
      - | MODEL_STORE_AWS_BUCKET
        | AWS_ACCESS_KEY_ID
        | AWS_SECRET_ACCESS_KEY
+   * - `Backblaze B2 <https://www.backblaze.com/cloud-storage>`_
+     - backblaze-b2
+     - | MODEL_STORE_B2_BUCKET
+       | B2_APPLICATION_KEY_ID
+       | B2_APPLICATION_KEY
+       | MODEL_STORE_B2_REGION (optional)
+       | MODEL_STORE_B2_ENDPOINT (optional)
+   * - `MinIO <https://min.io/>`_
+     - minio
+     - | MODEL_STORE_MINIO_BUCKET
+       | MINIO_ACCESS_KEY
+       | MINIO_SECRET_KEY
+       | MINIO_ENDPOINT (optional)
    * - `Azure Container <https://docs.microsoft.com/en-us/azure/container-instances/>`_
      - azure-container
      - | MODEL_STORE_AZURE_CONTAINER

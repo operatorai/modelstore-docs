@@ -10,6 +10,7 @@ When you upload a model, an :code:`artifacts.tar.gz` file is created and then up
 
 1. Files that are dumps from your model,
 2. A :code:`"python-info.json"` file that enumerates the version of the Python library of the model you are exporting.
+3. Any extra files you passed via :code:`extra_files=`, stored in an :code:`extras/` subdirectory inside the archive.
 
 
 Model Meta-data
@@ -21,9 +22,12 @@ The meta-data includes:
 
 * A unique id for your model;
 * Details about where the model is being uploaded to (the bucket and prefix);
-* The Python runtime that was used (e.g., "python:3.7.0")
-* The user `who ran the upload <https://docs.python.org/3/library/getpass.html#getpass.getuser>`_.
-* Versions for the Python library and key dependencies.
+* The Python runtime that was used (e.g., "python:3.7.0");
+* The user `who ran the upload <https://docs.python.org/3/library/getpass.html#getpass.getuser>`_;
+* Versions for the Python library and key dependencies;
+* The git commit hash (if the upload was run inside a git repository);
+* Training data metadata (feature names, shapes, label distributions) when :code:`X_train` and :code:`y_train` are provided;
+* Any custom metadata passed via :code:`extra_metadata=`.
 
 Domains
 -------
@@ -50,7 +54,7 @@ Storage
 
 When you pick a backend that stores data in files (e.g., Cloud Storage Buckets), the files are stored with a pre-defined structure.
 
-The top-level, **root** prefix that this library hard-codes is :code:`operatorai-model-store`.
+The top-level, **root** prefix defaults to :code:`operatorai-model-store`. You can override this by passing a :code:`root_prefix` argument when creating your model store instance.
 
 When you create and upload a model archive, this library will upload three files to different places in the bucket.
 
