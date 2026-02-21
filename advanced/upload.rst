@@ -41,7 +41,7 @@ For example, you might want to upload a classifier **and** the predictions it ma
     file_path = "predictions.csv"
     numpy.savetxt(file_path, predictions, delimiter=",")
 
-    modelstore.upload("my-domain", model=model, extras=file_path)
+    modelstore.upload("my-domain", model=model, extra_files=file_path)
 
 When you load these models, the extra files are not loaded into memory:
 
